@@ -71,27 +71,27 @@ Route::get('/home-exemple',array(
 
 Route::get('/', array(
     'as'=> 'home',
-    'uses'=>'Controller@showIndex'
+    'uses'=>'storeController@showIndex'
 ));
 
 Route::get('/checkout',array(
     'as'=> 'checkout',
-    'uses'=>'Controller@checkout'
+    'uses'=>'storeController@checkout'
 ));
 
 Route::get('/cart',array(
     'as'=> 'cart',
-    'uses'=>'Controller@cart'
+    'uses'=>'storeController@cart'
 ));
 
 Route::get('/shop',array(
     'as'=> 'shop',
-    'uses'=>'Controller@shop'
+    'uses'=>'storeController@shop'
 ));
 
 Route::get('/show-product',array(
     'as'=> 'show-product',
-    'uses'=>'Controller@showProduct'
+    'uses'=>'storeController@showProduct'
 ));
 
 
