@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 /**
  * Ceci est une route
@@ -60,9 +60,38 @@ Route::get('/mon-template',array(
    'uses'=>'Controller@renderTemplate'
 ));
 
-Route::get('/home',array(
-    'as'=>'home',
+Route::get('/home-exemple',array(
+    'as'=>'home-example',
     'uses'=>'Controller@homeMethod'
+));
+
+
+
+/**** ROUTE ECOMMERCE ****/
+
+Route::get('/', array(
+    'as'=> 'home',
+    'uses'=>'Controller@showIndex'
+));
+
+Route::get('/checkout',array(
+    'as'=> 'checkout',
+    'uses'=>'Controller@checkout'
+));
+
+Route::get('/cart',array(
+    'as'=> 'cart',
+    'uses'=>'Controller@cart'
+));
+
+Route::get('/shop',array(
+    'as'=> 'shop',
+    'uses'=>'Controller@shop'
+));
+
+Route::get('/show-product',array(
+    'as'=> 'show-product',
+    'uses'=>'Controller@showProduct'
 ));
 
 
