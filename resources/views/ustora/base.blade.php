@@ -113,6 +113,7 @@
                     <li class="{{ $route == "home" ? "active" : "" }}">
                         <a href="{{ route('home') }}">Home </a>
                     </li>
+
                     <li class="{{ $route == "shop" ? "active" : "" }}">
                         <a href="{{ route('shop') }}">Shop page</a>
                     </li>
