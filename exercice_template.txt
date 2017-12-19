@@ -1,0 +1,10 @@
+Le dossier ustora que j'ai partagé sur slack
+
+1)Importer les templates et les ressources dans votre projet Laravel.
+
+2)Créer des routes et crééz un controller pour ces pages avec les méthodes correspondantes dans le dit controller.
+
+3)Ensuite crééz un template base à partir du quel toutes les pages feront un extend.
+
+4)Linkez les ressources comme nous avons vu et faites des lien à partir du header.
+
