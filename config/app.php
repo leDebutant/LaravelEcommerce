@@ -167,7 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        /**** POUR LES FORMULAIRES ON RAJOUTE CES 3 ELEMENTS ****/
+        Collective\Html\HtmlServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -225,7 +226,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        /**** POUR LES FORMULAIRES ON RAJOUTE CES 3 ELEMENTS ****/
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Input' => Illuminate\Support\Facades\Input::class,
     ],
 
 ];

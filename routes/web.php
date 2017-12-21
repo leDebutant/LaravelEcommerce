@@ -111,6 +111,12 @@ Route::get('/show-product',array(
     'uses'=>'storeController@showProduct'
 ));
 
+/*** FORMULAIRE ***/
+Route::get('/new-product',array(
+   'as'=>'new-product',
+   'uses'=>'storeController@newProduct'
+));
+
 
 
 

@@ -8,7 +8,6 @@ class storeController extends Controller
 {
     /*** METHODES ECOMMERCE ***/
 
-
     public function showIndex(){
         return view('ustora.index');
     }
@@ -27,5 +26,10 @@ class storeController extends Controller
 
     public function showProduct(){
         return view('ustora.single-product');
+    }
+
+    public function newProduct(){
+
+        return view('ustora.new-product');
     }
 }
