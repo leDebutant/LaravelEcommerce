@@ -65,6 +65,23 @@ Route::get('/home-exemple',array(
     'uses'=>'Controller@homeMethod'
 ));
 
+/*** MODEL: CREATE READ UPDATE DELETE ***/
+Route::get('/crud',array(
+   'as'=>'crud',
+   'uses'=>'Controller@crud'
+));
+
+/*** MODEL: CRUD CATEGORY ***/
+Route::get('/crud-category',array(
+    'as'=>'crud-category',
+    'uses'=>'Controller@crudCategory'
+));
+
+/*** QUERIES TO THE DATABASE ***/
+Route::get('/queries',array(
+   'as'=>'queries',
+   'uses'=>'Controller@queriesDatabase'
+));
 
 
 /**** ROUTE ECOMMERCE ****/

@@ -13,9 +13,12 @@ class ProductsSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
+        //remise à zero de la base, pour qu'elle clean lors du seed
+        \App\Product::truncate();
 
         for($i=0;$i<30;$i++){
             $title = ucfirst(implode($faker->words(2)));
+
 
             \App\Product::create(array(
                 'title'=>$title,
