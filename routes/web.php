@@ -116,6 +116,11 @@ Route::get('/new-product',array(
    'as'=>'new-product',
    'uses'=>'storeController@newProduct'
 ));
+/** SERVICE NEW PRODUCT!! **/
+Route::post('/new-product',array(
+    'as'=>'new-product',
+    'uses'=>'storeController@newProductService'
+));
 
 
 

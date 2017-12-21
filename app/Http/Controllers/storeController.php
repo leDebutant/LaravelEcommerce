@@ -32,4 +32,11 @@ class storeController extends Controller
 
         return view('ustora.new-product');
     }
+
+    public function newProductService(Request $request)
+    {
+        $r = $request->all();
+        dump($request);
+        die();
+    }
 }
