@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\NewProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
@@ -35,20 +36,33 @@ class storeController extends Controller
 
     public function newProduct(){
 
-        return view('ustora.new-product');
+        $categories = Category::all();
+        $arrayCategs=array();
+        foreach ($categories as $c){
+            $arrayCategs[$c['id']] = $c->category;
+            // je met à gauche l'id et à droite la valeur en string
+            // exemple: id =>'Computers',
+        }
+
+        return view('ustora.new-product',array(
+            'categories' => $arrayCategs
+        ));
     }
 
     public function newProductService(NewProductRequest $request)
     {
         $r = $request->all();
-//        dump($r);
-//        die();
+        dump($r);
+        die();
+
+
         $title = $r['title'];
         $description = $r['description'];
         $prix = $r['prix'];
         $reference = $r['reference'];
         $tva = $r['tva'];
         $stock = $r['stock'];
+        $category = $r['categories'];
         $file = $r['file'];
 
         //ceci donne l'extension .jpeg, .png
@@ -71,6 +85,7 @@ class storeController extends Controller
         $product->reference = $reference;
         $product->stock = $stock;
         $product->picture = $name;
+        $product->category_id = $category;
         $product->save();
 
         // ce redirect nous renvoie sur la page précédente (il s'avère ici que c'est le get qui porte le même attention!!)

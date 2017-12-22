@@ -52,6 +52,10 @@
                     )) }}
                 </div>
                 <div class="form-group">
+                    {{ Form::label('categories','Categories') }}
+                    {{ Form::select('categories',$categories) }}
+                </div>
+                <div class="form-group">
                     {{ Form::label('description','Description') }}
                     {{ Form::textarea('description','',['class'=>'form-control']) }}
                 </div>

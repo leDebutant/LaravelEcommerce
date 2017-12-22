@@ -24,6 +24,7 @@ class CreateProductTable extends Migration
             $table->string('reference');
             $table->string('picture')->nullable(true);
             $table->integer('stock')->default(0);
+            $table->integer('category_id');
             //timestamps nous créera automatiquement created_at, updated_at
             $table->timestamps();
         });

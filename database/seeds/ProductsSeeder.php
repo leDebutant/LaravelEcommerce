@@ -27,6 +27,7 @@ class ProductsSeeder extends Seeder
                 'TVA'=>0.2,
                 'reference'=>$faker->randomNumber(5),
                 'stock'=>$faker->numberBetween(0,10),
+                'category_id'=>$faker->numberBetween(1,5)
             ));
         }
     }
