@@ -23,12 +23,19 @@ class NewProductRequest extends FormRequest
      */
     public function rules()
     {
+        /**
+         * Voyez la liste des contraintes ici
+         * https://laravel.com/docs/5.5/validation
+         */
         return [
             'title'         =>'required|max:20',
             'description'   =>'required',
-            'reference'     =>'required|unique:produits|alpha_num',
-            'price'         =>'required|numeric',
-            'file'          =>'required',
+            /** unique:produits ira chercher dans le champs reference des entités produits et vérifiera si reference est unique. Si ça ne l'est pas -> erreur **/
+            'reference'     =>'required|unique:products|alpha_num',
+            'prix'        =>'required|numeric',
+//            'file'          =>'required',
         ];
     }
+
+
 }

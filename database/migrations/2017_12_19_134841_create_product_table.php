@@ -22,6 +22,7 @@ class CreateProductTable extends Migration
             $table->float('prix',8,2);
             $table->float('tva',4,2)->default(0.2);
             $table->string('reference');
+            $table->string('picture')->nullable(true);
             $table->integer('stock')->default(0);
             //timestamps nous créera automatiquement created_at, updated_at
             $table->timestamps();

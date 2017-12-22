@@ -86,9 +86,9 @@ class Controller extends BaseController
     {
         //RETRIEVE DATA FROM THE DATABASE
         /**  1) **/
-        //$product = Product::find(2);
+        $product = Product::find(2);
         /**  2) **/
-//        $product = Product::all();
+        $product = Product::all();
 
         /**
          * Attention cette methode ::all() retournera une collection d'objet Product

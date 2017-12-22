@@ -24,6 +24,7 @@
 
               {{ Form::open(array(
                 'route'=>'new-product',
+                'files'=>true,
               )) }}
                 <div class="form-group">
                     {{ Form::label('title','Title') }}
@@ -56,7 +57,11 @@
                 </div>
                 <div class="form-group">
                     {{ Form::label('stock','Stock') }}
-                    {{ Form::text('stock','',['class'=>'form-control']) }}
+                    {{ Form::number('stock','',['class'=>'form-control']) }}
+                </div>
+                <div class="form-group">
+{{--                    {{ Form::label('file','Choose a picture') }}--}}
+                    {{ Form::file('file') }}
                 </div>
                 {{ Form::button('submit',array(
                     'type'=>'submit',
