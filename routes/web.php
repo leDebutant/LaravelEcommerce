@@ -106,7 +106,7 @@ Route::get('/shop',array(
     'uses'=>'storeController@shop'
 ));
 
-Route::get('/show-product',array(
+Route::get('/show-product/{id?}',array(
     'as'=> 'show-product',
     'uses'=>'storeController@showProduct'
 ));

@@ -26,8 +26,11 @@ class storeController extends Controller
         return view('ustora.shop');
     }
 
-    public function showProduct(){
-        return view('ustora.single-product');
+    public function showProduct($id=''){
+        $product = Product::find($id);
+        return view('ustora.single-product',array(
+            'product'=>$product
+        ));
     }
 
     public function newProduct(){
