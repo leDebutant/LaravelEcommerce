@@ -26,4 +26,21 @@ class ProductRepository extends BaseRepository
         /** l'avantage de cette méthode c'est qu'elle nous permet d'appeler ultérieurement les classes qui lui sont liées et ce sans faire de jointures. Par contre il faut les mettres en lien dans les modèles */
     }
 
+    public function selectProductByPriceInferiorTo($price){
+        $product = Product::where('prix','<',$price)
+            ->take(4) //seulement 4 résultats
+            ->orderBy('prix', 'desc')
+            ->get();
+
+        return $product;
+    }
+
+    public function productsPriceBetween($min,$max){
+        $product = Product::whereBetween('prix',array($min,$max))
+            ->orderBy('prix', 'desc')
+            ->get();
+
+        return $product;
+    }
+
 }

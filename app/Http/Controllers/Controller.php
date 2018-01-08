@@ -120,12 +120,20 @@ class Controller extends BaseController
          */
         //$product = Product::where('title',"Iphone 8")->get();
         //$product = $this->productRepo->getMyProduct(2);
+        /***
+         * Avec les relation entre entité nous pouvons faire appel au entité qui ont une relation avec la première entité appellée.
+         */
+//        $order = $this->orderRepo->getById(2);
+//
+//        foreach($order->commandeproducts as $cp){
+//            dump($cp->product->title);
+//        }
+        /**
+         * Appel à des produits avec conditions
+         */
+        $products = $this->productRepo->productsPriceBetween(100,200);
+        dump($products);
 
-        $order = $this->orderRepo->getById(2);
-
-        foreach($order->commandeproducts as $cp){
-            dump($cp->product->title);
-        }
         die();
     }
 
