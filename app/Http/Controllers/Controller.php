@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
 use App\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -17,10 +18,12 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     private $productRepo;
+    private $orderRepo;
 
-    public function __construct(ProductRepository $productRepo)
+    public function __construct(ProductRepository $productRepo,OrderRepository $orderRepo)
     {
         $this->productRepo = $productRepo;
+        $this->orderRepo = $orderRepo;
     }
 
     public function aliasMethod(){
@@ -116,10 +119,13 @@ class Controller extends BaseController
          * la clause where nous permet de faire une selection selon un paramètre spécific, en l'occurence "title"
          */
         //$product = Product::where('title',"Iphone 8")->get();
+        //$product = $this->productRepo->getMyProduct(2);
 
-        $product = $this->productRepo->getById(1);
+        $order = $this->orderRepo->getById(2);
 
-        dump($product);
+        foreach($order->commandeproducts as $cp){
+            dump($cp->product->title);
+        }
         die();
     }
 

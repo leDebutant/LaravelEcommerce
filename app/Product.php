@@ -10,4 +10,14 @@ class Product extends Model
     {
         return "uploads/".$this->picture;
     }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
+
+    public function commandeproducts()
+    {
+        return $this->hasMany('App\OrderProduct');
+    }
 }
