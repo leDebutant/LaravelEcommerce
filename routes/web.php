@@ -123,6 +123,8 @@ Route::post('/new-product',array(
     'uses'=>'storeController@newProductService'
 ));
 
-
-
-
+/** SESSION **/
+Route::get('/session',array(
+   'as'=>'session',
+   'uses'=>'Controller@session'
+));

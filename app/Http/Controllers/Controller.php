@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request; //Cet objet gère toutes les requêtes HTTP
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Session;
 
 class Controller extends BaseController
 {
@@ -108,6 +110,24 @@ class Controller extends BaseController
         $product = Product::where('title',"Iphone 8")->get();
         dump($product);
         die();
+    }
+
+    /*** SESSION ***/
+    public function session(Request $request){
+
+        //A l'ancienne
+//        $request->session()->put('key','value');
+//        $request->session()->put('name','alfonso');
+
+//        $_SESSION['name']='alfonso';
+//
+        //En statique - pour celui la on a pas besoin de l'objet Request
+        // mais de l'objet session use Illuminate\Support\Facades\Session;
+//        Session::put('name','alfonso');
+
+        dump($request->session()->get('name'));
+        die();
+        return "ici c'est les sessions";
     }
 
 
