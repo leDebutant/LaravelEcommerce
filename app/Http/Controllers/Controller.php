@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Repositories\ProductRepository;
 use App\User;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request; //Cet objet gère toutes les requêtes HTTP
@@ -14,6 +15,13 @@ use Illuminate\Support\Facades\Session;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    private $productRepo;
+
+    public function __construct(ProductRepository $productRepo)
+    {
+        $this->productRepo = $productRepo;
+    }
 
     public function aliasMethod(){
 
@@ -88,9 +96,9 @@ class Controller extends BaseController
     {
         //RETRIEVE DATA FROM THE DATABASE
         /**  1) **/
-        $product = Product::find(2);
+        //$product = Product::find(2);
         /**  2) **/
-        $product = Product::all();
+        //$product = Product::all();
 
         /**
          * Attention cette methode ::all() retournera une collection d'objet Product
@@ -107,7 +115,10 @@ class Controller extends BaseController
         /**
          * la clause where nous permet de faire une selection selon un paramètre spécific, en l'occurence "title"
          */
-        $product = Product::where('title',"Iphone 8")->get();
+        //$product = Product::where('title',"Iphone 8")->get();
+
+        $product = $this->productRepo->getById(1);
+
         dump($product);
         die();
     }

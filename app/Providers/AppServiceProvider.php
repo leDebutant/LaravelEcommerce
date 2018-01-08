@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\InterfaceRepository;
+use App\Repositories\OrderRepository;
+use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(InterfaceRepository::class,ProductRepository::class);
+        $this->app->singleton(InterfaceRepository::class,OrderRepository::class);
     }
 }
