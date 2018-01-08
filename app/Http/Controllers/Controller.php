@@ -116,8 +116,8 @@ class Controller extends BaseController
     public function session(Request $request){
 
         //A l'ancienne
-//        $request->session()->put('key','value');
-//        $request->session()->put('name','alfonso');
+        $request->session()->put('key','value');
+        $request->session()->put('name','alfonso');
 
 //        $_SESSION['name']='alfonso';
 //
