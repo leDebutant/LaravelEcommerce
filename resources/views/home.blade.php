@@ -1,26 +1,23 @@
-@extends('base')
-
-@section('title')
-    Ceci est mon titre
-@endsection
-
-@section('sidebar')
-    @parent
-    <li>
-        Section 3
-    </li>
-@endsection
+@extends('layouts.app')
 
 @section('content')
-    Ceci est mon contenu descriptif
-    <br/>
+<div class="container">
     <div class="row">
-        Ceci est une ligne css
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
+
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    You are logged in!
+                </div>
+            </div>
+        </div>
     </div>
-
-@endsection
-
-@section('footer')
-    @parent
-    <li>Customer Services</li>
+</div>
 @endsection

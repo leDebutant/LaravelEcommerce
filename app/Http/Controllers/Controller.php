@@ -156,6 +156,8 @@ class Controller extends BaseController
     }
 
 
-
+    public function protectedUrl(){
+        return "Esta es mi url y esta protegida";
+    }
 
 }

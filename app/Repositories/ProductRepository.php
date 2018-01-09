@@ -93,7 +93,7 @@ class ProductRepository extends BaseRepository
     }
 
     /***
-     * TRANSACTION: Pour préserver la cohérence des bases de données certaines opérations implique plusieurs opérations d'écritures. Ce qui veut dire que pour que la base soit cohérente si une des opérations échouent les autres doivent être annulées.
+     * TRANSACTION: Pour préserver la cohérence des bases de données certaines opérations impliquent plusieurs opérations d'écritures. Ce qui veut dire que pour que la base soit cohérente si jamais des opérations échouent les autres doivent être annulées.
      * Pour celà SQL gère les transactions à travers du statement "start TRANSACTION"
      *      1- INSERT...
      *      2- UPDATE ...

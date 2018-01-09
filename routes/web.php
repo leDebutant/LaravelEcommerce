@@ -128,3 +128,12 @@ Route::get('/session',array(
    'as'=>'session',
    'uses'=>'Controller@session'
 ));
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/protectedUrl',array(
+   'as'=>'protectedUrl',
+   'uses'=>'Controller@protectedUrl',
+))->middleware('auth');
