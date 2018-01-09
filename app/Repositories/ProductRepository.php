@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class ProductRepository extends BaseRepository
 {
@@ -41,6 +42,37 @@ class ProductRepository extends BaseRepository
             ->get();
 
         return $product;
+    }
+
+    public function selectWithDB()
+    {
+        $products = DB::select("SELECT * FROM products WHERE prix < :prix",array('prix'=>200));
+        return $products;
+    }
+
+    public function updateWithDB(){
+        return DB::update("UPDATE products SET title=:title WHERE id=:id",array(
+            'title'=>'testing',
+            'id'=>1
+        ));
+    }
+
+    public function insertWithDB(){
+        return DB::insert('INSERT INTO categories SET category =:category',array(
+           'category'=>'Riggx8'
+        ));
+    }
+
+    public function deleteWithDB(){
+        return DB::delete('DELETE FROM categories WHERE category=:category',array(
+            'category'=>'Riggx8'
+        ));
+    }
+
+    public function statementWithDB(){
+        //pour des statement typiques de mysql que vous passeriez dans mysqlWorkBench par exemple
+        DB::statement('ALTER TABLE products AUTO_INCREMENT=1');
+        DB::raw('SELECT * product WHERE id=1');
     }
 
 }

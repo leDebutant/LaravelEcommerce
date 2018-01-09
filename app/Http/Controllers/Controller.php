@@ -131,7 +131,7 @@ class Controller extends BaseController
         /**
          * Appel à des produits avec conditions
          */
-        $products = $this->productRepo->productsPriceBetween(100,200);
+        $products = $this->productRepo->insertWithDB();
         dump($products);
 
         die();
