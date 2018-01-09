@@ -131,7 +131,7 @@ class Controller extends BaseController
         /**
          * Appel à des produits avec conditions
          */
-        $products = $this->productRepo->insertWithDB();
+        $products = $this->productRepo->queryBuilderQuery();
         dump($products);
 
         die();

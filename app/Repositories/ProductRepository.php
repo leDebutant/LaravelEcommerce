@@ -75,4 +75,23 @@ class ProductRepository extends BaseRepository
         DB::raw('SELECT * product WHERE id=1');
     }
 
+    /*** QueryBuilder -> typiquement quand il faut faire des jointures ou alors parceque les entités prennent trop de ressources ***/
+
+    public function queryBuilderQuery(){
+        /***
+         * Avec le queryBuilder nous n'avons besoin d'écrire la requête entièrement. Commence toujours par DB::table('...
+         ***/
+        //return DB::table('products')->get();
+
+        /*** JOINTURE ***/
+        $products = DB::table('products')
+            ->leftJoin('categories','products.category_id','=','categories.id')
+            ->select('products.*','categories.category')
+            ->get();
+
+        return $products;
+    }
+
+
+
 }
