@@ -92,6 +92,22 @@ class ProductRepository extends BaseRepository
         return $products;
     }
 
+    /***
+     * TRANSACTION: Pour préserver la cohérence des bases de données certaines opérations implique plusieurs opérations d'écritures. Ce qui veut dire que pour que la base soit cohérente si une des opérations échouent les autres doivent être annulées.
+     * Pour celà SQL gère les transactions à travers du statement "start TRANSACTION"
+     *      1- INSERT...
+     *      2- UPDATE ...
+     *     Si le 1 et le 2 sont vérifiés alors on confimera avec le statement SQL
+     *          "commit"
+     *      Sinon avec le statement SQL
+     *          "rollback"
+     ***/
 
+    public function transaction(){
+        DB::transaction(function(){
+           //Ici vous devez mettre vos requêtes
+            // Si jamais vous devez faire plusieurs écritures pour une même opération il faut utiliser une transaction.
+        });
+    }
 
 }
